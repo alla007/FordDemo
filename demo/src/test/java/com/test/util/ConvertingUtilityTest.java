@@ -45,6 +45,70 @@ public class ConvertingUtilityTest {
         //then
         assertEquals(testResult,"Invalid Input");
     }
+    @Test
+    public void isInteger_Successful(){
+        //given
+        String testStr ="103";
+        //when
+        boolean testResult = convertingUtility.isInteger(testStr);
+        //then
+        assertEquals(testResult,true);
+    }
+    @Test
+    public void isInteger_Fail(){
+        //given
+        String testStr ="103X";
+        //when
+        boolean testResult = convertingUtility.isInteger(testStr);
+        //then
+        assertEquals(testResult,false);
+    }
+
+    @Test
+    public void testRomanToInt__Case1(){
+        //given
+        String testStr ="III";
+        //when
+        int testResult = convertingUtility.romanToInt(testStr);
+        //then
+        assertEquals(testResult,3);
+    }
+    @Test
+    public void testRomanToInt__Case2(){
+        //given
+        String testStr ="LVIII";
+        //when
+        int testResult = convertingUtility.romanToInt(testStr);
+        //then
+        assertEquals(testResult,58);
+    }
+    @Test
+    public void testRomanToInt__Case3(){
+        //given
+        String testStr ="MCMXCIV";
+        //when
+        int testResult = convertingUtility.romanToInt(testStr);
+        //then
+        assertEquals(testResult,1994);
+    }
+    @Test
+    public void testRomanToInt__invalidRoman(){
+        //given
+        String testStr ="MCMXCIVu";
+        //when
+        int testResult = convertingUtility.romanToInt(testStr);
+        //then
+        assertEquals(testResult,0);
+    }
+    @Test
+    public void testRomanToInt__invalidRangeRoman(){
+        //given
+        String testStr ="MCMXCIVXXXXXXXXX";
+        //when
+        int testResult = convertingUtility.romanToInt(testStr);
+        //then
+        assertEquals(testResult,0);
+    }
 
 
 }
